@@ -1,0 +1,35 @@
+<div class="container mx-auto p-4 max-w-2xl">
+  <h1 class="font-bold">Weather Details</h1>
+
+  <div class="card bg-base-100 shadow-xl p-6 mt-4">
+    <% if @weather %>
+      <h2><%= @weather["location"]["display_name"] %></h2>
+      <% @weather["weather"].each do |condition| %>
+        <div class="flex flex-col gap-2 py-8 sm:flex-row sm:items-center sm:py-4">
+          <%= image_tag "https://openweathermap.org/img/wn/#{condition["icon"]}.png", height: 25, width: 25, alt: condition["main"], class: "mx-auto block rounded-full sm:mx-0 sm:shrink-0" %>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-lg">
+              <%= @weather["weather"][0]["description"].titlecase %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+      <p class="text-lg"><strong>Temperature:</strong> <%= @weather["main"]["temp"] %>°F</p>
+      <p class="text-lg"><strong>High:</strong> <%= @weather["main"]["temp_max"] %>°F</p>
+      <p class="text-lg"><strong>Low:</strong> <%= @weather["main"]["temp_min"] %>°F</p>
+
+      <% if @cached %>
+        <span class="badge badge-info mt-2">Cached Result</span>
+      <% end %>
+    <% else %>
+      <div role="alert" class="alert alert-error alert-soft">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Weather data not available.</span>
+      </div>
+    <% end %>
+  </div>
+
+  <a href="/" class="btn btn-secondary mt-4">Back</a>
+</div>
