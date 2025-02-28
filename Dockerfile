@@ -39,19 +39,6 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
-# Install Redis
-RUN apt-get install --no-install-recommends -y lsb-release curl gpg && \
-    curl -fsSL https://packages.redis.io/gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg && \
-    sudo chmod 644 /usr/share/keyrings/redis-archive-keyring.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list && \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends -y redis && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# Ensure Redis is started
-RUN sudo systemctl enable redis-server && \
-    sudo systemctl start redis-server
-
 # Copy application code
 COPY . .
 
