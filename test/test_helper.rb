@@ -1,6 +1,9 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "ostruct"
+require "webmock/minitest"
+require "minitest/mock"
 
 module ActiveSupport
   class TestCase

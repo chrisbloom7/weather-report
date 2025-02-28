@@ -1,4 +1,8 @@
 {
+  "name": "weather-report",
+  "version": "0.0.0-alpha",
+  "description": "",
+  "author": "chrisbloom7",
   "dependencies": {
     "daisyui": "^5.0.0-beta.9"
   }

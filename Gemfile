@@ -62,8 +62,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webmock"
+  gem "rails-controller-testing"
 end
 
 gem "redis", "~> 5.4"
 gem "geocoder", "~> 1.8"
 gem "faraday", "~> 2.12"
+gem "faraday-logging-color_formatter", "~> 0.2.0"
