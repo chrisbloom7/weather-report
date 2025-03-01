@@ -38,6 +38,3 @@
 
 # Ignore redis dump file
 dump.rdb
-
-# Ignore node modules
-node_modules/
