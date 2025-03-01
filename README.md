@@ -1,24 +1,64 @@
-# README
+# 🌦️ Weather Report - A Ruby on Rails 8 Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails 8 application that allows users to search for weather forecasts using a location autocomplete feature powered by Geocoder and OpenWeather API.
 
-Things you may want to cover:
+## 🚀 Features
 
-* Ruby version
+✅ Search for a location using autocomplete (Stimulus.js + Geocoder + Nominatim API)
+✅ Retrieve weather data using OpenWeather API
+✅ Cache results using Redis (for faster subsequent requests)
+✅ Live updates using Hotwire/Stimulus
+✅ TailwindCSS + DaisyUI for modern UI styling
 
-* System dependencies
+## 📦 Installation
 
-* Configuration
+### 1️⃣ Clone the Repository
 
-* Database creation
+git clone https://github.com/your-username/weather-report.git
+cd weather-report
 
-* Database initialization
+### 2️⃣ Install Dependencies
 
-* How to run the test suite
+```shell
+bundle install
+npm install # or yarn install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3️⃣ Setup Environment Variables
 
-* Deployment instructions
+Create a .env file and add:
 
-* ...
+OPENWEATHER_API_KEY=your_api_key_here
+REDIS_URL=your_redis_url_here
+SECRET_KEY_BASE=your_secret_key_here
+
+### 4️⃣ Setup Database
+
+(This project does not require a database, but Rails expects one to be present)
+
+```shell
+rails db:create
+rails db:migrate
+```
+
+### 5️⃣ Start the Server
+
+rails s
+
+Visit http://localhost:3000 🚀
+
+## 🧪 Running Tests
+
+Run Rails Unit Tests
+
+```shell
+rails test
+```
+
+## 📝 API References
+
+- [OpenWeather API](https://openweathermap.org/api)
+- [Geocoder Gem](https://github.com/alexreisner/geocoder)
+- [Nominatim API](https://nominatim.org/release-docs/develop/api/Search/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
