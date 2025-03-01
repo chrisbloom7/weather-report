@@ -26,6 +26,12 @@ bundle install
 npm install # or yarn install
 ```
 
+You'll also need to install Redis on your machine. You can do this using Homebrew:
+
+```shell
+brew install redis
+```
+
 ### 3️⃣ Setup Environment Variables
 
 Create a .env file and add:
