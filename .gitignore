@@ -38,3 +38,5 @@
 
 # Ignore redis dump file
 dump.rdb
+
+/config/credentials/production.key
