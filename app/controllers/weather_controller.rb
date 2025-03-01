@@ -4,7 +4,7 @@ class WeatherController < ApplicationController
 
   def show
     location = GeolocationService.get_location(params[:location])
-    cached_data = nil # Rails.cache.read("weather:#{location.postal_code}") unless location.nil?
+    cached_data = Rails.cache.read("weather:#{location.postal_code}") unless location.nil?
     if cached_data
       @weather = JSON.parse(cached_data)
       @cached = true

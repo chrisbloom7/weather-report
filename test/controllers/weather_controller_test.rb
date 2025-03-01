@@ -4,7 +4,12 @@ class WeatherControllerTest < ActionDispatch::IntegrationTest
   setup do
     @location = OpenStruct.new(postal_code: "10001", latitude: 40.7128, longitude: -74.0060, data: { "city" => "New York" })
     @weather_data = { "weather" => [ { "main" => "Sunny", "description" => "sunny" } ], "main" => { "temp" => 75 }, "location" => @location.data }
-    Rails.cache.clear
+    @original_cache_store = Rails.cache
+    Rails.cache = ActiveSupport::Cache::MemoryStore.new
+  end
+
+  teardown do
+    Rails.cache = @original_cache_store
   end
 
   test "should get index" do
@@ -14,7 +19,7 @@ class WeatherControllerTest < ActionDispatch::IntegrationTest
 
   test "should show weather with cached data" do
     Rails.cache.write("weather:#{@location.postal_code}", @weather_data.to_json, expires_in: 30.minutes)
-    refute_nil Rails.cache.read("weather:#{@location.postal_code}")
+    assert_equal Rails.cache.read("weather:#{@location.postal_code}"), @weather_data.to_json
 
     GeolocationService.stub :get_location, @location do
       get weather_url(location: "New York")

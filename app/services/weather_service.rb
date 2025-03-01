@@ -20,7 +20,9 @@ class WeatherService
 
   def self.connection
     Faraday.new(url: BASE_URL) do |faraday|
-      faraday.response :logger, ActiveSupport::Logger.new($stdout), formatter: Faraday::Logging::ColorFormatter
+      if Rails.env.development?
+        faraday.response :logger, ActiveSupport::Logger.new($stdout), formatter: Faraday::Logging::ColorFormatter
+      end
     end
   end
 end
