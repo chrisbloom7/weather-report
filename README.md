@@ -4,11 +4,11 @@ This is a Ruby on Rails 8 application that allows users to search for weather fo
 
 ## 🚀 Features
 
-✅ Search for a location using autocomplete (Stimulus.js + Geocoder + Nominatim API)
-✅ Retrieve weather data using OpenWeather API
-✅ Cache results using Redis (for faster subsequent requests)
-✅ Live updates using Hotwire/Stimulus
-✅ TailwindCSS + DaisyUI for modern UI styling
+- ✅ Search for a location using autocomplete (Stimulus.js + Geocoder + Nominatim API)
+- ✅ Retrieve weather data using OpenWeather API
+- ✅ Cache results using Redis (for faster subsequent requests)
+- ✅ Live updates using Hotwire/Stimulus
+- ✅ TailwindCSS + DaisyUI for modern UI styling
 
 ## 📦 Installation
 
