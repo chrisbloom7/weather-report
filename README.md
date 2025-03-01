@@ -14,8 +14,10 @@ This is a Ruby on Rails 8 application that allows users to search for weather fo
 
 ### 1️⃣ Clone the Repository
 
+```shell
 git clone https://github.com/your-username/weather-report.git
 cd weather-report
+```
 
 ### 2️⃣ Install Dependencies
 
@@ -28,9 +30,11 @@ npm install # or yarn install
 
 Create a .env file and add:
 
+```env
 OPENWEATHER_API_KEY=your_api_key_here
 REDIS_URL=your_redis_url_here
 SECRET_KEY_BASE=your_secret_key_here
+```
 
 ### 4️⃣ Setup Database
 
