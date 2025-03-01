@@ -37,13 +37,15 @@ SECRET_KEY_BASE=your_secret_key_here
 (This project does not require a database, but Rails expects one to be present)
 
 ```shell
-rails db:create
-rails db:migrate
+bin/rails db:create
+bin/rails db:migrate
 ```
 
 ### 5️⃣ Start the Server
 
-rails s
+```shell
+bin/dev
+```
 
 Visit http://localhost:3000 🚀
 
@@ -52,7 +54,7 @@ Visit http://localhost:3000 🚀
 Run Rails Unit Tests
 
 ```shell
-rails test
+bin/rails test
 ```
 
 ## 📝 API References
