@@ -68,5 +68,5 @@ end
 
 gem "redis", "~> 5.4"
 gem "geocoder", "~> 1.8"
-gem "faraday", "~> 2.12"
+gem "faraday", "~> 2.14"
 gem "faraday-logging-color_formatter", "~> 0.2.0"
